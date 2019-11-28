@@ -106,7 +106,6 @@ populateEasyBoard();
 
 function checkBoard() {
     //push table into array to test sudoku and color and wrong tiles
-    table = document.getElementById("table");
     testBoard=[];
     testBoard.push(Array.prototype.map.call(document.querySelectorAll('#table tr td'), function (td) {
         return td.firstChild;
