@@ -43,7 +43,7 @@ const boards = [[
 
 
 var cell;
-var gameBoard, solvedBoard, testBoard;
+var gameBoard, solvedBoard, testBoard = [];
 var table = document.getElementById("table");
 function getRandom(max) {
     return Math.floor(Math.random() * max);
@@ -93,6 +93,7 @@ function printBoard() {
     for (var r = 0; r < 9; r++) {
         for (var c = 0; c < 9; c++) {
             cell = table.rows[r].cells[c].firstChild;
+            cell.style.backgroundColor = "white";
             cell.setAttribute("disabled", true);
             cell.value = gameBoard[r * 9 + c];
             if (cell.value == "") {
@@ -106,24 +107,32 @@ populateEasyBoard();
 function checkBoard() {
     //push table into array to test sudoku and color and wrong tiles
     table = document.getElementById("table");
-    testBoard = [];
-    for (var r = 0; r < 9; r++) {
-        for (var c = 0; c < 9; c++) {
-            cell = table.rows[r].cells[c].firstChild;
-            testBoard.push(cell.value);
-            if (!cell.disabled) {
-                table.rows[r].cells[c].firstChild.style.backgroundColor = "White";
-                if (table.rows[r].cells[c].firstChild.value != solvedBoard[r * 9 + c]) {
-                    table.rows[r].cells[c].firstChild.style.backgroundColor = "Red";
-                }
+    testBoard=[];
+    testBoard.push(Array.prototype.map.call(document.querySelectorAll('#table tr td'), function (td) {
+        return td.firstChild;
+    }));
+    testBoard.push(Array.prototype.map.call(testBoard[0], function (cell) {
+        return cell.value;
+    }));
+    if (isSolvedSudoku(testBoard[1])) {
+        testBoard[0].forEach((cell)=>{
+            if(cell.style.backgroundColor=="red"){
+            cell.style.backgroundColor="white";
             }
-        }
-    }
-    if (isSolvedSudoku(testBoard)) {
+        });
         alert("Congradulations!");
+
     }
     else {
         alert("Errors found");
+        for (let i = 0; i < 81; i++) {
+            if (!testBoard[0][i].disabled) {
+                testBoard[0][i].style.backgroundColor = "White";
+                if (testBoard[1][i] != solvedBoard[i]) {
+                    testBoard[0][i].style.backgroundColor = "Red";
+                }
+            }
+        }
     }
 }
 
