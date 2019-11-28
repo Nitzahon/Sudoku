@@ -43,7 +43,7 @@ const boards = [[
 
 
 var cell;
-var gameBoard, solvedBoard, testBoard = [];
+var gameBoard, solvedBoard, testBoard;
 var table = document.getElementById("table");
 function getRandom(max) {
     return Math.floor(Math.random() * max);
@@ -106,7 +106,7 @@ function printBoard() {
 populateEasyBoard();
 
 function checkBoard() {
-    //push table into array to test sudoku and color and wrong tiles
+    //push table elements and element values into array to test sudoku and color and wrong tiles
     testBoard = [];
     testBoard.push(Array.prototype.map.call(document.querySelectorAll('#table tr td'), function (td) {
         return td.firstChild;
@@ -114,13 +114,15 @@ function checkBoard() {
     testBoard.push(Array.prototype.map.call(testBoard[0], function (cell) {
         return cell.value;
     }));
+    //check if solved
     if (isSolvedSudoku(testBoard[1])) {
-        //push all enabled inputs to array
+        //push all inputs to array
         testBoard = Array.prototype.map.call(document.querySelectorAll('#table tr td input'), function (input) {
             return input;
         });
+        //do on all input cells
         testBoard.forEach((cell) => {
-            //green is the color of victory, also prevent checks
+            //green is the color of victory, also prevent checks and changes
                 cell.style.backgroundColor = "#00FF00";
                 cell.setAttribute("disabled", true);
                 document.getElementById("check").setAttribute("disabled", true);            
