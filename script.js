@@ -55,23 +55,23 @@ const
 function getRandom(max) {
     return Math.floor(Math.random() * max);
 }
-
+function removeCells(sudoku, diff) {
+    let index;
+    let count = 0;
+    while (count < diff) {
+        index = getRandom(sudoku.length);
+        if (sudoku[index] != "") {
+            sudoku[index] = "";
+            count++;
+        }
+    }
+    return sudoku;
+}
 function generateGameBoard(diff) {
     randBoard = getRandom(4);
     gameBoard = boards[getRandom(boards.length)].slice();
     solvedBoard = gameBoard.slice();
-    let index;
-    let count = 0;
-    while (count < diff) {
-        //debugger;
-        index = getRandom(gameBoard.length);
-        if (gameBoard[index] != "") {
-            gameBoard[index] = "";
-            count++;
-        }
-
-    }
-    console.log(count);
+    gameBoard = removeCells(gameBoard, diff);
     return gameBoard
 }
 function populateEasyBoard() {
@@ -119,10 +119,10 @@ function checkBoard() {
             }
         }
     }
-    if(isSolvedSudoku(testBoard)){
+    if (isSolvedSudoku(testBoard)) {
         alert("Congradulations!");
     }
-    else{
+    else {
         alert("Errors found");
     }
 }
@@ -307,22 +307,23 @@ function solve(sudoku) {
     }
     return sudoku;
 }
-function removeCells(sudoku, diff) {
-    for (let i = 0; i < diff; i++) {
-        sudoku = removeCell(sudoku, getRandom(81));
-    }
-    return sudoku;
-}
-function removeCell(sudoku, cell) {
-    if (sudoku[cell] == " ") {
-        return (removeCell(sudoku, getRandom(81)));
-    }
-    else {
-        sudoku[cell] = " ";
-        return sudoku;
-    }
+// Recursive function to delete cells based on difficulty, not used but works acurrately
+// function removeCells(sudoku, diff) {
+//     for (let i = 0; i < diff; i++) {
+//         sudoku = removeCell(sudoku, getRandom(81));
+//     }
+//     return sudoku;
+// }
+// function removeCell(sudoku, cell) {
+//     if (sudoku[cell] == " ") {
+//         return (removeCell(sudoku, getRandom(81)));
+//     }
+//     else {
+//         sudoku[cell] = " ";
+//         return sudoku;
+//     }
 
-}
+// }
 // given a solved sudoku and the number of steps, prints out the sudoku
 function showSudoku(sudoku) {
     var sudokuText = "";
