@@ -106,7 +106,7 @@ populateEasyBoard();
 
 function checkBoard() {
     //push table into array to test sudoku and color and wrong tiles
-    testBoard=[];
+    testBoard = [];
     testBoard.push(Array.prototype.map.call(document.querySelectorAll('#table tr td'), function (td) {
         return td.firstChild;
     }));
@@ -114,10 +114,13 @@ function checkBoard() {
         return cell.value;
     }));
     if (isSolvedSudoku(testBoard[1])) {
-        testBoard[0].forEach((cell)=>{
-            if(cell.style.backgroundColor=="red"){
-            cell.style.backgroundColor="white";
-            }
+        //push all enabled inputs to array
+        testBoard = Array.prototype.map.call(document.querySelectorAll('#table tr td input'), function (input) {
+            return input;
+        });
+        testBoard.forEach((cell) => {
+            //green is the color of victory
+                cell.style.backgroundColor = "#00FF00";            
         });
         alert("Congradulations!");
 
