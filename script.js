@@ -286,7 +286,7 @@ function removeAttempt(attemptArray, number) {
 function nextRandom(possible) {
     var max = 9;
     var minChoices = 0;
-    for (var i = 0; i <  81; i++) {
+    for (var i = 0; i < 81; i++) {
         if (possible[i] != undefined) {
             if ((possible[i].length <= max) && (possible[i].length > 0)) {
                 max = possible[i].length;
@@ -343,8 +343,8 @@ function solve(sudoku) {
 // given a solved sudoku and the number of steps, prints out the sudoku
 function showSudoku(sudoku) {
     var sudokuText = "";
-    for (var i = 0; i <= 8; i++) {
-        for (var j = 0; j <= 8; j++) {
+    for (var i = 0; i < 9; i++) {
+        for (var j = 0; j < 9; j++) {
             sudokuText += " ";
             sudokuText += sudoku[i * 9 + j];
             sudokuText += " ";
