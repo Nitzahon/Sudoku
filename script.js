@@ -90,6 +90,7 @@ function populatehardBoard() {
 
 }
 function printBoard() {
+    document.getElementById("check").removeAttribute("disabled");
     for (var r = 0; r < 9; r++) {
         for (var c = 0; c < 9; c++) {
             cell = table.rows[r].cells[c].firstChild;
@@ -119,8 +120,10 @@ function checkBoard() {
             return input;
         });
         testBoard.forEach((cell) => {
-            //green is the color of victory
-                cell.style.backgroundColor = "#00FF00";            
+            //green is the color of victory, also prevent checks
+                cell.style.backgroundColor = "#00FF00";
+                cell.setAttribute("disabled", true);
+                document.getElementById("check").setAttribute("disabled", true);            
         });
         alert("Congradulations!");
 
