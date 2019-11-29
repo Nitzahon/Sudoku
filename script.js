@@ -44,7 +44,9 @@ const boards = [[
 
 var cell;
 var gameBoard, solvedBoard, testBoard;
-var table = document.getElementById("table");
+var table = Array.prototype.map.call(document.querySelectorAll('#table tr td input'), function (input) {
+    return input;
+});
 function getRandom(max) {
     return Math.floor(Math.random() * max);
 }
@@ -91,25 +93,23 @@ function populatehardBoard() {
 }
 function printBoard() {
     document.getElementById("check").removeAttribute("disabled");
-    for (var r = 0; r < 9; r++) {
-        for (var c = 0; c < 9; c++) {
-            cell = table.rows[r].cells[c].firstChild;
-            cell.style.backgroundColor = "white";
-            cell.setAttribute("disabled", true);
-            cell.value = gameBoard[r * 9 + c];
-            if (cell.value == "") {
-                cell.removeAttribute("disabled");
-            }
+    for (i = 0; i < 81; i++) {
+        table[i].style.backgroundColor = "white";
+        table[i].setAttribute("disabled", true);
+        table[i].value = gameBoard[i];
+        if (table[i].value == "") {
+            table[i].removeAttribute("disabled");
         }
     }
+
 }
 populateEasyBoard();
 
 function checkBoard() {
     //push table elements and element values into array to test sudoku and color and wrong tiles
     testBoard = [];
-    testBoard.push(Array.prototype.map.call(document.querySelectorAll('#table tr td'), function (td) {
-        return td.firstChild;
+    testBoard.push(Array.prototype.map.call(document.querySelectorAll('#table tr td input'), function (input) {
+        return input;
     }));
     testBoard.push(Array.prototype.map.call(testBoard[0], function (cell) {
         return cell.value;
@@ -123,9 +123,9 @@ function checkBoard() {
         //do on all input cells
         testBoard.forEach((cell) => {
             //green is the color of victory, also prevent checks and changes
-                cell.style.backgroundColor = "#00FF00";
-                cell.setAttribute("disabled", true);
-                document.getElementById("check").setAttribute("disabled", true);            
+            cell.style.backgroundColor = "#00FF00";
+            cell.setAttribute("disabled", true);
+            document.getElementById("check").setAttribute("disabled", true);
         });
         alert("Congradulations!");
 
@@ -286,7 +286,7 @@ function removeAttempt(attemptArray, number) {
 function nextRandom(possible) {
     var max = 9;
     var minChoices = 0;
-    for (var i = 0; i <= 80; i++) {
+    for (var i = 0; i < 81; i++) {
         if (possible[i] != undefined) {
             if ((possible[i].length <= max) && (possible[i].length > 0)) {
                 max = possible[i].length;
@@ -343,8 +343,8 @@ function solve(sudoku) {
 // given a solved sudoku and the number of steps, prints out the sudoku
 function showSudoku(sudoku) {
     var sudokuText = "";
-    for (var i = 0; i <= 8; i++) {
-        for (var j = 0; j <= 8; j++) {
+    for (var i = 0; i < 9; i++) {
+        for (var j = 0; j < 9; j++) {
             sudokuText += " ";
             sudokuText += sudoku[i * 9 + j];
             sudokuText += " ";
@@ -356,7 +356,7 @@ function showSudoku(sudoku) {
             sudokuText += "\n---+---+---+---+---+---+---+---+---\n";
         }
     }
-    document.write("<pre>" + sudokuText + "</pre><br>");
+    console.log(sudokuText);
 }
 
 
