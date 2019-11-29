@@ -51,7 +51,7 @@ function getRandom(max) {
     return Math.floor(Math.random() * max);
 }
 const
-    easy = 2,
+    easy = 20,
     medium = 40,
     hard = 60;
 function getRandom(max) {
