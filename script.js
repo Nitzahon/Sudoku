@@ -1,15 +1,5 @@
 // Java for html pages
-function pageLoad() {
-    debugger;
-    switch (window.location.hash) {
-        case "#easy": populateEasyBoard();
-        break;
-        case "#medium": populateMediumBoard();
-        break;
-        case "#hard" : populateHardBoard();
-        break;
-    }
-}
+
 // Check that user exist
 function checkUser() {
     let correctUser = "abcd";
@@ -50,24 +40,16 @@ function enterCheck() {
 // While clicking easy btn redirect to page 3 and populate board to easy level
 function redirectToEasyBoard() {
     window.location.href = "./index3.html#easy"
-    // location.replace("./index3.html");
-            populateEasyBoard();
-
 }
 
 // While clicking medium  btn redirect to page 3 and populate board to medume level
 function redirectToMedBoard() {
     window.location.href = "./index3.html#medium"
-    // location.replace("./index3.html");
-            populateEasyBoard();
-
 }
 
 // While clicking hard btn redirect to page 3 and populate board to hard level
 function redirectToHardBoard() {
     window.location.href = "./index3.html#hard"
-    // location.replace("./index3.html");
-            populateEasyBoard();
 
 }
 
@@ -432,6 +414,14 @@ function showSudoku(sudoku) {
     }
     console.log(sudokuText);
 }
-
+//check hashcode
+// switch (window.location.hash) {
+//     case "#easy": populateEasyBoard();
+//         break;
+//     case "#medium": populateMediumBoard();
+//         break;
+//     case "#hard": populateHardBoard();
+//         break;
+// }
 
 

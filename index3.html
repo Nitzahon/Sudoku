@@ -140,7 +140,6 @@
 <script src='script.js'></script>
 <script>
 function pageLoad() {
-    debugger;
     switch (window.location.hash) {
 
         case "#easy": populateEasyBoard();
@@ -150,6 +149,8 @@ function pageLoad() {
         case "#hard" : populateHardBoard();
         break;
     }
-}</script>
+}
+pageLoad();
+</script>
 </body>
 </html>
