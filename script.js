@@ -1,11 +1,12 @@
 // Java for html pages
 function pageLoad() {
+    debugger;
     switch (window.location.hash) {
         case "#easy": populateEasyBoard();
         break;
-        case "#medium": M();
+        case "#medium": populateMediumBoard();
         break;
-        case "#hard" : H();
+        case "#hard" : populateHardBoard();
         break;
     }
 }
