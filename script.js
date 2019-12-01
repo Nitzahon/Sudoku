@@ -415,12 +415,17 @@ function showSudoku(sudoku) {
     }
     console.log(sudokuText);
 }
-//check hashcode
-// switch (window.location.hash) {
-//     case "#easy": populateEasyBoard();
-//         break;
-//     case "#medium": populateMediumBoard();
-//         break;
-//     case "#hard": populateHardBoard();
-//         break;
-// }
+function pageLoad() {
+    switch (window.location.hash) {
+
+        case "#easy": populateEasyBoard();
+        break;
+        case "#medium": populateMediumBoard();
+        break;
+        case "#hard" : populateHardBoard();
+        break;
+        default: populateEasyBoard();
+        break;
+    }
+}
+pageLoad();
