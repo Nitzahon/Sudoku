@@ -1,57 +1,58 @@
 // Java for html pages
 
 // Check that user exist
-function checkUser(){
+function checkUser() {
     let correctUser = "abcd";
     let user = document.getElementById("username").value;
     let userMsg = document.getElementById("userCheck");
-        if(user != correctUser){
+    if (user != correctUser) {
         userMsg.textContent = "Invalid User";
         userMsg.style.color = "red";
-    }else{
+    } else {
         userMsg.textContent = "";
     }
 }
 
 // chaeck that password exist
-function checkPass(){
+function checkPass() {
     let correctPass = "1234";
     let password = document.getElementById("pass").value;
     let passMsg = document.getElementById("passcheck");
-    if(password != correctPass){
+    if (password != correctPass) {
         passMsg.textContent = "Invalid Password!";
         passMsg.style.color = "red";
-    }else{
+    } else {
         passMsg.textContent = "";
     }
 }
 
 // Enter  to second page
-function enterCheck(){
+function enterCheck() {
     let userMsg = document.getElementById("userCheck");
     let passMsg = document.getElementById("passcheck");
-    if (userMsg.textContent == "Invalid User"|| passMsg.textContent == "Invalid Password!" ){
+    if (userMsg.textContent == "Invalid User" || passMsg.textContent == "Invalid Password!") {
         alert("invalid data try again");
-    }else{
-        location.replace("./index2.html"); 
+    } else {
+        location.replace("./index2.html");
     }
 }
 
 // While clicking easy btn redirect to page 3 and populate board to easy level
-function redirectToEasyBoard(){
-    location.replace("./index3.html"); 
-    populateEasyBoard();
+function redirectToEasyBoard() {
+    location.replace("./index3.html");
+            populateEasyBoard();
+
 }
 
 // While clicking medium  btn redirect to page 3 and populate board to medume level
-function redirectToMedBoard(){
-    location.replace("./index3.html"); 
+function redirectToMedBoard() {
+    location.replace("./index3.html");
     populatemediumBoard();
 }
 
 // While clicking hard btn redirect to page 3 and populate board to hard level
-function redirectToHardBoard(){
-    location.replace("./index3.html"); 
+function redirectToHardBoard() {
+    location.replace("./index3.html");
     populatehardBoard();
 }
 
@@ -162,7 +163,6 @@ function printBoard() {
     }
 
 }
-populateEasyBoard();
 
 function checkBoard() {
     //push table elements and element values into array to test sudoku and color and wrong tiles
