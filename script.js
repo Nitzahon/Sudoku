@@ -100,7 +100,9 @@ const boards = [[
 
 var cell;
 var gameBoard, solvedBoard, testBoard;
+
 //get all inputs in order as 1D array
+
 var table = Array.prototype.map.call(document.querySelectorAll('#table tr td input'), function (input) {
     return input;
 });
