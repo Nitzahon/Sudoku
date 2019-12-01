@@ -1,0 +1,36 @@
+.background{
+	height: 705px; 
+	background-image: url("reka02.jpg");
+	background-size: cover;
+    box-sizing: border-box;
+    background-size: 100% 100%;
+     padding-top: 300px;
+}
+
+.backgroundBlock{
+    /* font-size: 30px;
+    font-weight: bold;  */
+    text-align: center; 
+} 
+.inp {
+    width: 280px;
+    height: 50px;
+    font-size: 20px;
+    background: transparent;
+    border: 3px solid rgb(83, 195, 236);
+    padding: 10px;
+    border-radius: 10px;
+    color: rgb(83, 195, 236);
+    outline: none;
+} 
+
+ ::placeholder{
+    color: white;
+    opacity: 1;
+}
+
+
+#enter{
+    /* background-color: #FFA500; */
+    background-color: #FF8C00;
+} 
