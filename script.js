@@ -1,5 +1,8 @@
 
-// Java for html pages
+const
+easy = 20,
+medium = 40,
+hard = 60;
 
 // Check that user exist
 function checkUser() {
@@ -108,10 +111,7 @@ var table = Array.prototype.map.call(document.querySelectorAll('#table tr td inp
 function getRandom(max) {
     return Math.floor(Math.random() * max);
 }
-const
-    easy = 20,
-    medium = 40,
-    hard = 60;
+
 function getRandom(max) {
     return Math.floor(Math.random() * max);
 }
@@ -174,17 +174,19 @@ function checkBoard() {
     //check if solved
     if (isSolvedSudoku(testBoard[1])) {
         //push all inputs to array
-        testBoard = Array.prototype.map.call(document.querySelectorAll('#table tr td input'), function (input) {
-            return input;
-        });
-        //do on all input cells
-        testBoard.forEach((cell) => {
-            //green is the color of victory, also prevent checks and changes
-            cell.style.backgroundColor = "#00FF00";
-            cell.setAttribute("disabled", true);
-            document.getElementById("check").setAttribute("disabled", true);
-        });
+        // testBoard = Array.prototype.map.call(document.querySelectorAll('#table tr td input'), function (input) {
+        //     return input;
+        // });
+        // //do on all input cells
+        // testBoard.forEach((cell) => {
+        //     //green is the color of victory, also prevent checks and changes
+        //     cell.style.backgroundColor = "#00FF00";
+        //     cell.setAttribute("disabled", true);
+        //     document.getElementById("check").setAttribute("disabled", true);
+        // });
         alert("Congradulations!");
+        location.replace("./index2.html");
+
 
     }
     else {
