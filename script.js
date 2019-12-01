@@ -1,5 +1,14 @@
 // Java for html pages
-
+function pageLoad() {
+    switch (window.location.hash) {
+        case "#easy": populateEasyBoard();
+        break;
+        case "#medium": M();
+        break;
+        case "#hard" : H();
+        break;
+    }
+}
 // Check that user exist
 function checkUser() {
     let correctUser = "abcd";
@@ -39,21 +48,26 @@ function enterCheck() {
 
 // While clicking easy btn redirect to page 3 and populate board to easy level
 function redirectToEasyBoard() {
-    location.replace("./index3.html");
+    window.location.href = "./index3.html#easy"
+    // location.replace("./index3.html");
             populateEasyBoard();
 
 }
 
 // While clicking medium  btn redirect to page 3 and populate board to medume level
 function redirectToMedBoard() {
-    location.replace("./index3.html");
-    populatemediumBoard();
+    window.location.href = "./index3.html#medium"
+    // location.replace("./index3.html");
+            populateEasyBoard();
+
 }
 
 // While clicking hard btn redirect to page 3 and populate board to hard level
 function redirectToHardBoard() {
-    location.replace("./index3.html");
-    populatehardBoard();
+    window.location.href = "./index3.html#hard"
+    // location.replace("./index3.html");
+            populateEasyBoard();
+
 }
 
 
@@ -141,12 +155,12 @@ function populateEasyBoard() {
     printBoard();
 
 }
-function populatemediumBoard() {
+function populateMediumBoard() {
     gameBoard = generateGameBoard(medium);
     printBoard();
 
 }
-function populatehardBoard() {
+function populateHardBoard() {
     gameBoard = generateGameBoard(hard);
     printBoard();
 
