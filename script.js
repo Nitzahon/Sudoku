@@ -1,8 +1,8 @@
 
 const
-easy = 20,
-medium = 40,
-hard = 60;
+    easy = 20,
+    medium = 40,
+    hard = 60;
 
 // Check that user exist
 function checkUser() {
@@ -161,7 +161,17 @@ function printBoard() {
     }
 
 }
-
+//Cheating here, take random empty cell and put the solved value in it, no calculations required, we already have the solved value
+function hint() {
+    let emptyInds = gameBoard.map((val, i) => {
+        if (val == "") { return i; }
+    }).filter((index) => index != undefined);
+    if (emptyInds.length != 0) {
+        let i = emptyInds[getRandom(emptyInds.length)];
+        table[i].value = gameBoard[i] = solvedBoard[i];        
+        table[i].style.backgroundColor="green";
+    }
+}
 function checkBoard() {
     //push table elements and element values into array to test sudoku and color and wrong tiles
     testBoard = [];
@@ -382,6 +392,7 @@ function solve(sudoku) {
     }
     return sudoku;
 }
+
 // Recursive function to delete cells based on difficulty, not used but works acurrately
 // function removeCells(sudoku, diff) {
 //     for (let i = 0; i < diff; i++) {
@@ -421,13 +432,13 @@ function pageLoad() {
     switch (window.location.hash) {
 
         case "#easy": populateEasyBoard();
-        break;
+            break;
         case "#medium": populateMediumBoard();
-        break;
-        case "#hard" : populateHardBoard();
-        break;
+            break;
+        case "#hard": populateHardBoard();
+            break;
         default: populateEasyBoard();
-        break;
+            break;
     }
 }
 pageLoad();
