@@ -1,3 +1,59 @@
+// Java for html pages
+
+// Check that user exist
+function checkUser() {
+    let correctUser = "abcd";
+    let user = document.getElementById("username").value;
+    let userMsg = document.getElementById("userCheck");
+    if (user != correctUser) {
+        userMsg.textContent = "Invalid User";
+        userMsg.style.color = "red";
+    } else {
+        userMsg.textContent = "";
+    }
+}
+
+// chaeck that password exist
+function checkPass() {
+    let correctPass = "1234";
+    let password = document.getElementById("pass").value;
+    let passMsg = document.getElementById("passcheck");
+    if (password != correctPass) {
+        passMsg.textContent = "Invalid Password!";
+        passMsg.style.color = "red";
+    } else {
+        passMsg.textContent = "";
+    }
+}
+
+// Enter  to second page
+function enterCheck() {
+    let userMsg = document.getElementById("userCheck");
+    let passMsg = document.getElementById("passcheck");
+    if (userMsg.textContent == "Invalid User" || passMsg.textContent == "Invalid Password!") {
+        alert("invalid data try again");
+    } else {
+        location.replace("./index2.html");
+    }
+}
+
+// While clicking easy btn redirect to page 3 and populate board to easy level
+function redirectToEasyBoard() {
+    window.location.href = "./index3.html#easy"
+}
+
+// While clicking medium  btn redirect to page 3 and populate board to medume level
+function redirectToMedBoard() {
+    window.location.href = "./index3.html#medium"
+}
+
+// While clicking hard btn redirect to page 3 and populate board to hard level
+function redirectToHardBoard() {
+    window.location.href = "./index3.html#hard"
+
+}
+
+
 
 const boards = [[
     4, 7, 9, 5, 6, 1, 2, 3, 8,
@@ -44,6 +100,7 @@ const boards = [[
 
 var cell;
 var gameBoard, solvedBoard, testBoard;
+//get all inputs in order as 1D array
 var table = Array.prototype.map.call(document.querySelectorAll('#table tr td input'), function (input) {
     return input;
 });
@@ -81,12 +138,12 @@ function populateEasyBoard() {
     printBoard();
 
 }
-function populatemediumBoard() {
+function populateMediumBoard() {
     gameBoard = generateGameBoard(medium);
     printBoard();
 
 }
-function populatehardBoard() {
+function populateHardBoard() {
     gameBoard = generateGameBoard(hard);
     printBoard();
 
@@ -103,7 +160,6 @@ function printBoard() {
     }
 
 }
-populateEasyBoard();
 
 function checkBoard() {
     //push table elements and element values into array to test sudoku and color and wrong tiles
@@ -358,6 +414,14 @@ function showSudoku(sudoku) {
     }
     console.log(sudokuText);
 }
-
+//check hashcode
+// switch (window.location.hash) {
+//     case "#easy": populateEasyBoard();
+//         break;
+//     case "#medium": populateMediumBoard();
+//         break;
+//     case "#hard": populateHardBoard();
+//         break;
+// }
 
 
