@@ -4,6 +4,7 @@ const
     medium = 40,
     hard = 60;
 
+var lastHint = undefined;
 // Check that user exist
 function checkUser() {
     let correctUser = "abcd";
@@ -161,15 +162,40 @@ function printBoard() {
     }
 
 }
+// function sleep(miliseconds) {
+//     var currentTime = new Date().getTime();
+//     var checkTime = new Date().getTime();
+//     while (currentTime + miliseconds >= checkTime) {
+//         checkTime=new Date().getTime();
+//     }
+// }
+// function sleep(ms) {
+//     return new Promise(resolve => setTimeout(resolve, ms));
+//   }
 //Cheating here, take random empty cell and put the solved value in it, no calculations required, we already have the solved value
+// function solveToEnd() {
+//     let leftToSolve = gameBoard.filter((cell) => cell == "").length;
+//     for (let i = 0; i < leftToSolve; i++) {
+
+//         sleep(1000);
+//         hint();
+//     }
+// }
 function hint() {
     let emptyInds = gameBoard.map((val, i) => {
         if (val == "") { return i; }
     }).filter((index) => index != undefined);
     if (emptyInds.length != 0) {
+        if (lastHint != undefined) {
+            lastHint.style.backgroundColor = "white";
+        }
         let i = emptyInds[getRandom(emptyInds.length)];
-        table[i].value = gameBoard[i] = solvedBoard[i];        
-        table[i].style.backgroundColor="green";
+        table[i].value = gameBoard[i] = solvedBoard[i];
+        table[i].style.backgroundColor = "green";
+        lastHint = table[i];
+    }
+    else {
+        checkBoard();
     }
 }
 function checkBoard() {
