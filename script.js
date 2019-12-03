@@ -27,6 +27,7 @@ function checkPass() {
         passMsg.style.color = "red";
     } else {
         passMsg.textContent = "";
+
     }
 }
 
@@ -41,7 +42,18 @@ function enterCheck() {
     }
 }
 
+function triggerEnterBtn (){
+    let password = document.getElementById("pass");
+        if (event.keyCode === 13) {
+          // Cancel the default action, if needed
+        //   event.preventDefault();
+          // Trigger the button element with a click
+          document.getElementById("enter").click();
+        }
+}
+
 // While clicking easy btn redirect to page 3 and populate board to easy level
+
 function redirectToEasyBoard() {
     window.location.href = "./index3.html#easy"
 }
