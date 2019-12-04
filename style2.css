@@ -1,10 +1,10 @@
 .background{
-	height: 705px;
-	background-image: url("reka02.jpg");
+    height: 705px;
+    background-image: url("rekafinal.png");
 	background-size: cover;
     box-sizing: border-box;
     background-size: 100% 100%;
-    padding-top: 300px;
+    padding-top: 250px;
 }
 
 .backgroundBlock{
@@ -13,17 +13,22 @@
         text-align: center;
     }
 
-h1, h3{
+h1{
     color: rgb(83, 195, 236);
+}
+
+h3{
+    color: #800080;
+
 }
 
 #easy{
     /* background-color: #ffff66; */
-    background-color: #ff9900;
+    background-color: rgb(187,135,236);
 }
 
 #medium{
-    background-color: rgb(187,135,236);
+    background-color: orange;
 
 }
 
