@@ -3,7 +3,7 @@ const
     easy = 20,
     medium = 40,
     hard = 60;
-
+var lastHint=undefined;
 // Check that user exist
 function checkUser() {
     let correctUser = "abcd";
@@ -179,9 +179,16 @@ function hint() {
         if (val == "") { return i; }
     }).filter((index) => index != undefined);
     if (emptyInds.length != 0) {
+        if(lastHint!= undefined){
+            lastHint.style.backgroundColor="white";
+        }
         let i = emptyInds[getRandom(emptyInds.length)];
+        lastHint=table[i];
         table[i].value = gameBoard[i] = solvedBoard[i];        
         table[i].style.backgroundColor="green";
+    }
+    else{
+        checkBoard();
     }
 }
 function checkBoard() {
