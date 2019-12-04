@@ -1,9 +1,11 @@
+//file system
+
 
 const
     easy = 20,
     medium = 40,
     hard = 60;
-var lastHint=undefined;
+var lastHint = undefined;
 // Check that user exist
 function checkUser() {
     let correctUser = "abcd";
@@ -42,14 +44,14 @@ function enterCheck() {
     }
 }
 
-function triggerEnterBtn (){
+function triggerEnterBtn() {
     let password = document.getElementById("pass");
-        if (event.keyCode === 13) {
-          // Cancel the default action, if needed
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
         //   event.preventDefault();
-          // Trigger the button element with a click
-          document.getElementById("enter").click();
-        }
+        // Trigger the button element with a click
+        document.getElementById("enter").click();
+    }
 }
 
 // While clicking easy btn redirect to page 3 and populate board to easy level
@@ -70,48 +72,42 @@ function redirectToHardBoard() {
 }
 
 
+var boards;
+function errorHandler(e) {
 
-const boards = [[
-    4, 7, 9, 5, 6, 1, 2, 3, 8,
-    3, 1, 6, 7, 8, 2, 4, 9, 5,
-    8, 5, 2, 9, 4, 3, 7, 6, 1,
-    7, 3, 1, 2, 5, 6, 9, 8, 4,
-    9, 6, 8, 4, 1, 7, 3, 5, 2,
-    5, 2, 4, 8, 3, 9, 6, 1, 7,
-    2, 4, 5, 3, 9, 8, 1, 7, 6,
-    1, 8, 3, 6, 7, 4, 5, 2, 9,
-    6, 9, 7, 1, 2, 5, 8, 4, 3
-], [
-    4, 7, 9, 5, 6, 1, 2, 3, 8,
-    3, 1, 6, 7, 8, 2, 4, 9, 5,
-    8, 5, 2, 9, 4, 3, 7, 6, 1,
-    7, 3, 1, 2, 5, 6, 9, 8, 4,
-    9, 6, 8, 4, 1, 7, 3, 5, 2,
-    5, 2, 4, 8, 3, 9, 6, 1, 7,
-    2, 4, 5, 3, 9, 8, 1, 7, 6,
-    1, 8, 3, 6, 7, 4, 5, 2, 9,
-    6, 9, 7, 1, 2, 5, 8, 4, 3
-], [
-    5, 3, 4, 6, 7, 8, 9, 1, 2,
-    6, 7, 2, 1, 9, 5, 3, 4, 8,
-    1, 9, 8, 3, 4, 2, 5, 6, 7,
-    8, 5, 9, 7, 6, 1, 4, 2, 3,
-    4, 2, 6, 8, 5, 3, 7, 9, 1,
-    7, 1, 3, 9, 2, 4, 8, 5, 6,
-    9, 6, 1, 5, 3, 7, 2, 8, 4,
-    2, 8, 7, 4, 1, 9, 6, 3, 5,
-    3, 4, 5, 2, 8, 6, 1, 7, 9
-], [
-    5, 3, 4, 6, 7, 8, 9, 1, 2,
-    6, 7, 2, 1, 9, 5, 3, 4, 8,
-    1, 9, 8, 3, 4, 2, 5, 6, 7,
-    8, 5, 9, 7, 6, 1, 4, 2, 3,
-    4, 2, 6, 8, 5, 3, 7, 9, 1,
-    7, 1, 3, 9, 2, 4, 8, 5, 6,
-    9, 6, 1, 5, 3, 7, 2, 8, 4,
-    2, 8, 7, 4, 1, 9, 6, 3, 5,
-    3, 4, 5, 2, 8, 6, 1, 7, 9
-]];
+
+
+
+    console.log('Error: ' + e.code);
+}
+
+function initFS() {
+    window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
+    window.requestFileSystem(window.TEMPORARY, 50 * 1024 /*50 KB*/, onInitFs, errorHandler);
+}
+function onInitFs(fs) {
+
+    fs.root.getFile('log.txt', {}, function (fileEntry) {
+
+        // Get a File object representing the file,
+        // then use FileReader to read its contents.
+        fileEntry.file(function (file) {
+            var reader = new FileReader();
+
+            reader.onloadend = function (e) {
+                let strs = this.resultsplit(/[\r\n]+/g);
+                for (let i = 0; i < strs.length; i++) {
+                    debugger;
+                    boards.push(strs[i].split(""));
+                }
+            };
+
+            reader.readAsText(file);
+        }, errorHandler);
+
+    }, errorHandler);
+
+}
 
 
 var cell;
@@ -137,7 +133,8 @@ function removeCells(sudoku, diff) {
 }
 function generateGameBoard(diff) {
     randBoard = getRandom(4);
-    solvedBoard = boards[getRandom(boards.length)].slice();
+    //solvedBoard = boards[getRandom(boards.length)].slice();
+    solvedBoard = solve(new Array(81).fill(0));
     gameBoard = removeCells(solvedBoard.slice(), diff);
     return gameBoard
 }
@@ -192,15 +189,15 @@ function hint() {
         if (val == "") { return i; }
     }).filter((index) => index != undefined);
     if (emptyInds.length != 0) {
-        if(lastHint!= undefined){
-            lastHint.style.backgroundColor="white";
+        if (lastHint != undefined) {
+            lastHint.style.backgroundColor = "white";
         }
         let i = emptyInds[getRandom(emptyInds.length)];
-        lastHint=table[i];
-        lastHint.value = gameBoard[i] = solvedBoard[i];        
-        lastHint.style.backgroundColor="green";
+        lastHint = table[i];
+        lastHint.value = gameBoard[i] = solvedBoard[i];
+        lastHint.style.backgroundColor = "green";
     }
-    else{
+    else {
         checkBoard();
     }
 }
@@ -474,3 +471,4 @@ function pageLoad() {
     }
 }
 pageLoad();
+initFS();
