@@ -3,8 +3,7 @@ const
     easy = 20,
     medium = 40,
     hard = 60;
-
-var lastHint = undefined;
+var lastHint=undefined;
 // Check that user exist
 function checkUser() {
     let correctUser = "abcd";
@@ -28,6 +27,7 @@ function checkPass() {
         passMsg.style.color = "red";
     } else {
         passMsg.textContent = "";
+
     }
 }
 
@@ -42,7 +42,18 @@ function enterCheck() {
     }
 }
 
+function triggerEnterBtn (){
+    let password = document.getElementById("pass");
+        if (event.keyCode === 13) {
+          // Cancel the default action, if needed
+        //   event.preventDefault();
+          // Trigger the button element with a click
+          document.getElementById("enter").click();
+        }
+}
+
 // While clicking easy btn redirect to page 3 and populate board to easy level
+
 function redirectToEasyBoard() {
     window.location.href = "./index3.html#easy"
 }
@@ -112,10 +123,6 @@ var table = Array.prototype.map.call(document.querySelectorAll('#table tr td inp
 function getRandom(max) {
     return Math.floor(Math.random() * max);
 }
-
-function getRandom(max) {
-    return Math.floor(Math.random() * max);
-}
 function removeCells(sudoku, diff) {
     let index;
     let count = 0;
@@ -130,9 +137,8 @@ function removeCells(sudoku, diff) {
 }
 function generateGameBoard(diff) {
     randBoard = getRandom(4);
-    gameBoard = boards[getRandom(boards.length)].slice();
-    solvedBoard = gameBoard.slice();
-    gameBoard = removeCells(gameBoard, diff);
+    solvedBoard = boards[getRandom(boards.length)].slice();
+    gameBoard = removeCells(solvedBoard.slice(), diff);
     return gameBoard
 }
 function populateEasyBoard() {
@@ -186,15 +192,15 @@ function hint() {
         if (val == "") { return i; }
     }).filter((index) => index != undefined);
     if (emptyInds.length != 0) {
-        if (lastHint != undefined) {
-            lastHint.style.backgroundColor = "white";
+        if(lastHint!= undefined){
+            lastHint.style.backgroundColor="white";
         }
         let i = emptyInds[getRandom(emptyInds.length)];
-        table[i].value = gameBoard[i] = solvedBoard[i];
-        table[i].style.backgroundColor = "green";
-        lastHint = table[i];
+        lastHint=table[i];
+        lastHint.value = gameBoard[i] = solvedBoard[i];        
+        lastHint.style.backgroundColor="green";
     }
-    else {
+    else{
         checkBoard();
     }
 }
