@@ -1,6 +1,5 @@
 //file system
 
-
 const
     easy = 20,
     medium = 40,
@@ -72,42 +71,42 @@ function redirectToHardBoard() {
 }
 
 
-var boards;
-function errorHandler(e) {
+var boards=[];
+// function errorHandler(e) {
+
+//     debugger;
 
 
+//     console.log('Error: ' + e.code);
+// }
 
+// function initFS() {
+//     window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
+//     window.requestFileSystem(window.TEMPORARY, 50 * 1024 /*50 KB*/, onInitFs, errorHandler);
+// }
+// function onInitFs(fs) {
 
-    console.log('Error: ' + e.code);
-}
+//     fs.root.getFile('sudoku.txt', {}, function (fileEntry) {
 
-function initFS() {
-    window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
-    window.requestFileSystem(window.TEMPORARY, 50 * 1024 /*50 KB*/, onInitFs, errorHandler);
-}
-function onInitFs(fs) {
+//         // Get a File object representing the file,
+//         // then use FileReader to read its contents.
+//         fileEntry.file(function (file) {
+//             var reader = new FileReader();
 
-    fs.root.getFile('log.txt', {}, function (fileEntry) {
+//             reader.onloadend = function (e) {
+//                 let strs = this.resultsplit(/[\r\n]+/g);
+//                 for (let i = 0; i < strs.length; i++) {
+//                     debugger;
+//                     boards.push(strs[i].split(""));
+//                 }
+//             };
 
-        // Get a File object representing the file,
-        // then use FileReader to read its contents.
-        fileEntry.file(function (file) {
-            var reader = new FileReader();
+//             reader.readAsText(file);
+//         }, errorHandler);
 
-            reader.onloadend = function (e) {
-                let strs = this.resultsplit(/[\r\n]+/g);
-                for (let i = 0; i < strs.length; i++) {
-                    debugger;
-                    boards.push(strs[i].split(""));
-                }
-            };
+//     }, errorHandler);
 
-            reader.readAsText(file);
-        }, errorHandler);
-
-    }, errorHandler);
-
-}
+// }
 
 
 var cell;
