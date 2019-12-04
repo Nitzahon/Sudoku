@@ -123,10 +123,6 @@ var table = Array.prototype.map.call(document.querySelectorAll('#table tr td inp
 function getRandom(max) {
     return Math.floor(Math.random() * max);
 }
-
-function getRandom(max) {
-    return Math.floor(Math.random() * max);
-}
 function removeCells(sudoku, diff) {
     let index;
     let count = 0;
@@ -141,9 +137,8 @@ function removeCells(sudoku, diff) {
 }
 function generateGameBoard(diff) {
     randBoard = getRandom(4);
-    gameBoard = boards[getRandom(boards.length)].slice();
-    solvedBoard = gameBoard.slice();
-    gameBoard = removeCells(gameBoard, diff);
+    solvedBoard = boards[getRandom(boards.length)].slice();
+    gameBoard = removeCells(solvedBoard, diff);
     return gameBoard
 }
 function populateEasyBoard() {
