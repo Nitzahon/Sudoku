@@ -138,7 +138,7 @@ function removeCells(sudoku, diff) {
 function generateGameBoard(diff) {
     randBoard = getRandom(4);
     solvedBoard = boards[getRandom(boards.length)].slice();
-    gameBoard = removeCells(solvedBoard, diff);
+    gameBoard = removeCells(solvedBoard.slice(), diff);
     return gameBoard
 }
 function populateEasyBoard() {
