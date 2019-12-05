@@ -237,7 +237,13 @@ function checkBoard() {
         }
     }
 }
-
+//Clear input backgrounds
+function clearBG(input){
+    if(input.style.backgroundColor!="white")
+    {
+        input.style.backgroundColor="white";
+    }
+}
 // given a sudoku cell, returns the row
 function returnRow(cell) {
     return Math.floor(cell / 9);
