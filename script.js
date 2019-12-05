@@ -53,25 +53,23 @@ function triggerEnterBtn() {
     }
 }
 
-// While clicking easy btn redirect to page 3 and populate board to easy level
-
-function redirectToEasyBoard() {
-    window.location.href = "./index3.html#easy"
+// While clicking btn redirect to page 3 and populate board to level based on button value
+function redirectBoard(diff) {
+    let str = "./index3.html";
+    switch (Number(diff.value)) {
+        case easy:
+            str += "#easy";
+            break;
+        case medium:
+            str += "#medium";
+            break;
+        case hard:
+            str += "#hard";
+            break;
+    }
+    location.replace(str);
 }
-
-// While clicking medium  btn redirect to page 3 and populate board to medume level
-function redirectToMedBoard() {
-    window.location.href = "./index3.html#medium"
-}
-
-// While clicking hard btn redirect to page 3 and populate board to hard level
-function redirectToHardBoard() {
-    window.location.href = "./index3.html#hard"
-
-}
-
-
-var boards=[];
+var boards = [];
 // function errorHandler(e) {
 
 //     debugger;
@@ -470,4 +468,3 @@ function pageLoad() {
     }
 }
 pageLoad();
-initFS();
