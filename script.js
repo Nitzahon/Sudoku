@@ -220,21 +220,28 @@ function checkBoard() {
         //     cell.setAttribute("disabled", true);
         //     document.getElementById("check").setAttribute("disabled", true);
         // });
-        alert("Congradulations!");
+        alert("Congradulations! You have completed the Sudoku challenge, why not try again?");
         location.replace("./index2.html");
 
 
     }
     else {
-        alert("Errors found");
+        let emp=0, wrg=0;
         for (let i = 0; i < 81; i++) {
             if (!testBoard[0][i].disabled) {
                 testBoard[0][i].style.backgroundColor = "White";
                 if (testBoard[1][i] != solvedBoard[i]) {
                     testBoard[0][i].style.backgroundColor = "Red";
+                    if(testBoard[0][i].value==""){
+                        emp++;
+                    }
+                    else{
+                        wrg++;
+                    }
                 }
             }
         }
+        alert(`Found ${emp} empty spaces, and ${wrg} misplaced numbers.`);
     }
 }
 //Clear input backgrounds
