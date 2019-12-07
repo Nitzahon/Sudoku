@@ -1,5 +1,9 @@
 .background{
-	height: 705px; 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 	background-image: url("rekafinal.png");
 	background-size: cover;
     box-sizing: border-box;
