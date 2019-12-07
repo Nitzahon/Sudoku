@@ -9,9 +9,11 @@
     box-sizing: border-box;
     background-size: 100% 100%;
     padding-top: 250px;
-    height: 705px;
 }
 
+body{
+    overflow: hidden;
+}
 .backgroundBlock{
         font-size: 30px;
         text-align: center;
