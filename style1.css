@@ -11,16 +11,16 @@
     background-size: 100% 100%;
     padding-top: 250px;
 }
-body{
-    overflow: hidden;
+body {
+    overflow:hidden;
 }
 .backgroundBlock{
     /* font-size: 30px;
     font-weight: bold;  */
     text-align: center; 
-    
 } 
 .hidden { font-size: 0; }
+
 p{
     /* color: #800080; */
     color: rgb(83, 195, 236);
@@ -50,5 +50,4 @@ p{
     /* background-color: #FFA500; */
     background-color: #138086;
 } 
-
 
