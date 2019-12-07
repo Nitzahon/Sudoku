@@ -464,6 +464,7 @@ function pageLoad() {
                 break;
         }
     }
+    //Enter keypress event listener
     document.addEventListener('keyup', (e) => {
         if (e.keyCode == 13) {
             let path = window.location.pathname;
