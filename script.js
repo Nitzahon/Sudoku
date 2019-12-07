@@ -11,8 +11,10 @@ const generatedboards = "5239684179613478254875123968791542633428965711567239486
 //lastHint, used in hint
 var lastHint = undefined;
 // Check that user exist
+var correctUser = "abcd";
+var correctPass = "1234";
 function checkUser() {
-    let correctUser = "abcd";
+
     let user = document.getElementById("username").value;
     let userMsg = document.getElementById("userCheck");
     userMsg.textContent = "Invalid User";
@@ -28,7 +30,7 @@ function checkUser() {
 
 // check that password exist
 function checkPass() {
-    let correctPass = "1234";
+
     let password = document.getElementById("pass").value;
     let passMsg = document.getElementById("passcheck");
     passMsg.style.color = "red";
@@ -442,23 +444,29 @@ function showSudoku(sudoku) {
 function pageLoad() {
     let path = window.location.pathname;
     let page = path.split("/").pop();
-    if (page == "index3.html") {
-        //get all inputs in order as 1D array
-        table = Array.prototype.map.call(document.querySelectorAll('#table tr td input'), function (input) {
-            return input;
-        });
-        //check hashcode for difficulty
-        switch (window.location.hash.split("&")[0]) {
+    switch (page) {
+        case "index2.html":
+            let str = correctUser
+            document.getElementById("guestName").innerHTML = "Welcome " + str;
+            break;
+        case "index3.html":
+            //get all inputs in order as 1D array
+            table = Array.prototype.map.call(document.querySelectorAll('#table tr td input'), function (input) {
+                return input;
+            });
+            //check hashcode for difficulty
+            switch (window.location.hash.split("&")[0]) {
 
-            case "#easy": populateBoard(easy);
-                break;
-            case "#medium": populateBoard(medium);
-                break;
-            case "#hard": populateBoard(hard);
-                break;
-            default: populateBoard(easy);
-                break;
-        }
+                case "#easy": populateBoard(easy);
+                    break;
+                case "#medium": populateBoard(medium);
+                    break;
+                case "#hard": populateBoard(hard);
+                    break;
+                default: populateBoard(easy);
+                    break;
+            }
+            break;
     }
     //Enter keypress event listener
     document.addEventListener('keyup', (e) => {
