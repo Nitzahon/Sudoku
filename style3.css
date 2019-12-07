@@ -65,8 +65,6 @@ input[type="text"]:focus{
         height: 80%;
         width: 80%;
     } 
-   
-
 }
 /* define layouts on mobile screens */
 @media screen and (max-width: 767px) {

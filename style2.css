@@ -18,33 +18,27 @@ body{
         font-size: 30px;
         text-align: center;
     }
-
 h1{
     color: rgb(83, 195, 236);
     margin-bottom: 40px;
     margin-top: 40px;
 }
-
 h3{
     /* color: #800080; */
     color: #8a5082;
     margin-bottom: 40px;
 }
-
 #easy{
     /* background-color: #ffff66; */
     background-color: rgb(187,135,236);
 }
-
 #medium{
     background-color: #eeb462;
 
 }
-
 #hard{
     background-color: #138086;
 }
-
 .diffbtn{
     width: 150px;
 }
@@ -54,13 +48,10 @@ h3{
     margin-top: 60px;
     
 }
-
 input[type="radio"]{
     margin-right:10px;
 }
-
 /* define layouts on mobile screens */
-
 @media screen and (max-width: 767px) {
     .radioBtnChoice{
         margin-top: 25px;
@@ -70,4 +61,3 @@ input[type="radio"]{
     }
    
 }
-
