@@ -12,7 +12,7 @@
     font-weight: bold;  */
     text-align: center; 
 } 
-
+.hidden { font-size: 0; }
 p{
     /* color: #800080; */
     color: rgb(83, 195, 236);
