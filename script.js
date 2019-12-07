@@ -448,7 +448,7 @@ function pageLoad() {
     let page = path.split("/").pop();
     if (page == "index3.html") {
         //get all inputs in order as 1D array
-        var table = Array.prototype.map.call(document.querySelectorAll('#table tr td input'), function (input) {
+        table = Array.prototype.map.call(document.querySelectorAll('#table tr td input'), function (input) {
             return input;
         });
         //check hashcode for difficulty
