@@ -12,7 +12,9 @@
     height: 1000px;
     padding-top: 250px;
 }
-
+body {
+    overflow:hidden;
+}
 .backgroundBlock{
     /* font-size: 30px;
     font-weight: bold;  */
