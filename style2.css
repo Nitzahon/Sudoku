@@ -53,6 +53,11 @@ h3{
     color: #eeb462;
     font-size: 20px;
     margin-top: 40px;
+    
+}
+
+input[type="radio"]{
+    margin-right:10px;
 }
 
 /* define layouts on mobile screens */
