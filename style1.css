@@ -4,10 +4,12 @@
     position: absolute;
     top: 0;
     left: 0;
+    bottom: 0;
 	background-image: url("rekafinal.png");
 	background-size: cover;
     box-sizing: border-box;
     background-size: 100% 100%;
+    height: 705px;
     padding-top: 250px;
 }
 
@@ -21,15 +23,15 @@ p{
     /* color: #800080; */
     color: rgb(83, 195, 236);
     font-size: 30px;
-    margin-top: 10px;
+    margin-top: 0;
     
 }
 .inp {
-    width: 280px;
+    width: 250px;
     height: 50px;
     font-size: 20px;
     background: transparent;
-    border: 3px solid #800080;
+    border: 3px solid #8a5082;
     padding: 10px;
     border-radius: 10px;
     color: rgb(83, 195, 236);
@@ -44,5 +46,5 @@ p{
 
 #enter{
     /* background-color: #FFA500; */
-    background-color: rgb(187,135,236);
+    background-color: #138086;
 } 

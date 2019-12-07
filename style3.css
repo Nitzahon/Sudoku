@@ -1,4 +1,9 @@
 .background{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;  
     background-image: url("bitmap.png"); /*  third page */
     background-size: cover;
     box-sizing: border-box;
@@ -46,15 +51,19 @@ input[type="text"]:focus{
     border-right: 5px solid #000a3f; 
 }
 
-#easy{
-    background-color: #ff9900;
-    outline: none; 
+
+.finish{
+    background-color: #8a5082;
 }
 
-#medium{
-    background-color: rgb(187,135,236);
+.again{
+    background-color: #eeb462;
 
-} 
+}
+
+.hint{
+    background-color: #138086;
+}
 
 .diffbtn{
     width: 150px;

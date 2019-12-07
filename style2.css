@@ -1,24 +1,32 @@
 .background{
-    height: 705px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;  
     background-image: url("rekafinal.png");
 	background-size: cover;
     box-sizing: border-box;
     background-size: 100% 100%;
     padding-top: 250px;
+    height: 705px;
 }
 
 .backgroundBlock{
-        font-size: 60px;
-        font-weight: bold;
+        font-size: 30px;
         text-align: center;
     }
 
 h1{
     color: rgb(83, 195, 236);
+    margin-bottom: 40px;
 }
 
 h3{
-    color: #800080;
+    /* color: #800080; */
+    color: #8a5082;
+    
+    margin-bottom: 30px;
 
 }
 
@@ -28,16 +36,32 @@ h3{
 }
 
 #medium{
-    background-color: orange;
+    background-color: #eeb462;
 
+}
+
+#hard{
+    background-color: #138086;
 }
 
 .diffbtn{
     width: 150px;
 }
 .radioBtnChoice{
-    color:  #800080;
+    color: #8a5082;
     font-size: 20px;
-    margin-top: 50px;
+    margin-top: 40px;
+}
+
+/* define layouts on mobile screens */
+
+@media screen and (max-width: 767px) {
+    .radioBtnChoice{
+        margin-top: 25px;
+    }
+    h1{
+        margin-bottom: 0;
+    }
+   
 }
 
