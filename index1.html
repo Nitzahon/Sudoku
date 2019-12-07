@@ -18,11 +18,11 @@
                         <p>Hello Guest wanna play?</p></br>
                         <p>Please Login</p>
                         <form class="login">
-                            <input class= "inp" id="username" onblur="checkUser()" type="text" placeholder="User Name"> </br>
-                            <div id="userCheck"></div> </br>
-                            <input class= "inp" id= "pass" onkeyup="triggerEnterBtn(event); checkPass()"; type= "password" placeholder="Password"> </br>
-                            <div id="passcheck"></div> </br>
-                            <button id="enter" type="button" onclick="enterCheck()" class="btn btn-lg btn-primary btn">Enter</button>
+                            <input class= "inp" id="username" onBlur="checkUser()" type="text" placeholder="User Name"> </br>
+                            <div id="userCheck" class="hidden" >Invalid User</div> </br>
+                            <input class= "inp" id= "pass" onBlur="checkPass()"; type= "password" placeholder="Password"> </br>
+                            <div id="passcheck" class="hidden" >Invalid Password!</div> </br>
+                            <button id="enter" type="button" onClick="enterCheck()" class="btn btn-lg btn-primary btn">Enter</button>
                         </form>
                     </div>
                 </div>

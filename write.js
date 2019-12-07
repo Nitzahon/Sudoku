@@ -192,6 +192,6 @@ let output;
 for(let i=0;i<100;i++){
     output=solve(new Array(81).fill(0));
     debugger;
-    output=output.join("")+"\r"
+    output=output.join("")+" "
     logger.write(output);
 }
