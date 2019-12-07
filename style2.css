@@ -35,5 +35,9 @@ h3{
 .diffbtn{
     width: 150px;
 }
-
+.radioBtnChoice{
+    color:  #800080;
+    font-size: 20px;
+    margin-top: 50px;
+}
 

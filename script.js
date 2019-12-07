@@ -138,25 +138,7 @@ function printBoard() {
     }
 
 }
-// function sleep(miliseconds) {
-//     var currentTime = new Date().getTime();
-//     var checkTime = new Date().getTime();
-//     while (currentTime + miliseconds >= checkTime) {
-//         checkTime=new Date().getTime();
-//     }
-// }
-// function sleep(ms) {
-//     return new Promise(resolve => setTimeout(resolve, ms));
-//   }
-//Cheating here, take random empty cell and put the solved value in it, no calculations required, we already have the solved value
-// function solveToEnd() {
-//     let leftToSolve = gameBoard.filter((cell) => cell == "").length;
-//     for (let i = 0; i < leftToSolve; i++) {
 
-//         sleep(1000);
-//         hint();
-//     }
-// }
 function hint() {
     let emptyInds = gameBoard.map((val, i) => {
         if (val == "") { return i; }
@@ -185,17 +167,7 @@ function checkBoard() {
     }));
     //check if solved
     if (isSolvedSudoku(testBoard[1])) {
-        //push all inputs to array
-        // testBoard = Array.prototype.map.call(document.querySelectorAll('#table tr td input'), function (input) {
-        //     return input;
-        // });
-        // //do on all input cells
-        // testBoard.forEach((cell) => {
-        //     //green is the color of victory, also prevent checks and changes
-        //     cell.style.backgroundColor = "#00FF00";
-        //     cell.setAttribute("disabled", true);
-        //     document.getElementById("check").setAttribute("disabled", true);
-        // });
+
         alert("Congradulations! You have completed the Sudoku challenge, why not try again?");
         location.replace("./index2.html");
 
