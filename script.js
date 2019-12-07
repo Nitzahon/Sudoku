@@ -41,7 +41,8 @@ function checkPass() {
 
 // Enter  to second page
 function enterCheck() {
-    debugger;
+    checkUser();
+    checkPass();
     let userMsg = document.getElementById("userCheck");
     let passMsg = document.getElementById("passcheck");
     if (userMsg.textContent == "Invalid User" || passMsg.textContent == "Invalid Password!") {
@@ -54,6 +55,7 @@ function enterCheck() {
 
 // While clicking btn redirect to page 3 and populate board to level based on button value
 function redirectBoard(diff) {
+    debugger;
     let str = "./index3.html";
     switch (Number(diff.value)) {
         case easy:
@@ -381,6 +383,7 @@ function nextRandom(possible) {
 
 // given a sudoku, solves it
 function solve(sudoku) {
+    debugger;
     var saved = new Array();
     var savedSudoku = new Array();
     var i = 0;
